@@ -15,8 +15,11 @@ public class GameLogic {
     private Button playAgainBtn;
     private Button homeBtn;
     private TextView playerTurn;
+    private TextView playerScore;
 
     private int player = 1;
+    private int player1_score= 0;
+    private int player2_score = 0;
 
     GameLogic(){
         gameBoard = new int [3][3];
@@ -93,6 +96,13 @@ public class GameLogic {
                 playAgainBtn.setVisibility(View.VISIBLE);
                 homeBtn.setVisibility(View.VISIBLE);
                 playerTurn.setText((playerNames[player-1] + " Won!"));
+                if(player == 1){
+                    player1_score++;
+                }
+                else{
+                   player2_score++;
+                }
+                playerScore.setText(playerNames[0] + ": "+ player1_score + "\t\t" + playerNames[1] + ": " + player2_score);
                 return true;
             }
             else if(boardFilled == 9){
@@ -136,6 +146,10 @@ public class GameLogic {
 
     public void setPlayerNames(String[] playerNames) {
         this.playerNames = playerNames;
+    }
+
+    public void setPlayerScores(TextView playerScore) {
+        this.playerScore = playerScore;
     }
 
     public int[][] getGameBoard(){

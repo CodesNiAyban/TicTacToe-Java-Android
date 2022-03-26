@@ -20,6 +20,7 @@ public class Game_display extends AppCompatActivity {
         Button playAgainBtn = findViewById(R.id.play_again);
         Button homeBtn = findViewById(R.id.home_btn);
         TextView playerTurn = findViewById(R.id.player_disp);
+        TextView playerScore = findViewById(R.id.player_score);
 
         playAgainBtn.setVisibility(View.GONE);
         homeBtn.setVisibility(View.GONE);
@@ -28,11 +29,12 @@ public class Game_display extends AppCompatActivity {
 
         if(playerNames != null){
             playerTurn.setText((playerNames[0] + "'s Turn"));
+            playerScore.setText((playerNames[0] + ": 0 " + "\t\t" + playerNames[1] + ": 0"));
         }
 
         tictactoeBoard = findViewById(R.id.ticTacToeBoard);
 
-        tictactoeBoard.setupGame(playAgainBtn, homeBtn, playerTurn, playerNames);
+        tictactoeBoard.setupGame(playAgainBtn, homeBtn, playerTurn, playerNames, playerScore);
     }
 
     public void playAgainButtonClick(View view){
