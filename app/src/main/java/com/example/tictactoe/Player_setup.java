@@ -20,7 +20,7 @@ public class Player_setup extends AppCompatActivity {
         player1 = findViewById(R.id.Player1);
         player2 = findViewById(R.id.Player2);
     }
-    public void submmitbuttonClick(View view){
+    public void submitButtonClick(View view){
         String player1Name = player1.getText().toString();
         String player2Name = player2.getText().toString();
 

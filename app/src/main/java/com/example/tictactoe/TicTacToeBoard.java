@@ -39,7 +39,7 @@ public class TicTacToeBoard extends View {
             boardColor = a.getInteger(R.styleable.TicTacToeBoard_boardColor,0);
             XColor = a.getInteger(R.styleable.TicTacToeBoard_XColor,0);
             OColor = a.getInteger(R.styleable.TicTacToeBoard_OColor,0);
-            winningLineColor = a.getInteger(R.styleable.TicTacToeBoard_WinningLineColor,0);
+            winningLineColor = a.getInteger(R.styleable.TicTacToeBoard_winningLineColor,0);
 
         } finally {
             a.recycle();
@@ -161,20 +161,20 @@ public class TicTacToeBoard extends View {
     }
 
     public void drawHorizontalLine(Canvas canvas, int row, int col){
-        canvas.drawLine(col, row*cellSize + cellSize/2,
-                        cellSize*3, row*cellSize + cellSize/2, paint);
+        canvas.drawLine(col, row*cellSize + (float)cellSize/2,
+                        cellSize*3, row*cellSize + (float)cellSize/2, paint);
     }
 
     public void drawVerticalLine(Canvas canvas, int row, int col){
-        canvas.drawLine(col*cellSize + cellSize/2, row,
-                col*cellSize + cellSize/2, cellSize*3, paint);
+        canvas.drawLine(col*cellSize + (float)cellSize/2, row,
+                col*cellSize + (float)cellSize/2, cellSize*3, paint);
     }
 
-    private void drawDiagLinePos(Canvas canvas){
+    private void drawDiagonalLinePos(Canvas canvas){
         canvas.drawLine(0, cellSize*3, cellSize*3,0, paint);
     }
 
-    private void drawDiagLineNeg(Canvas canvas){
+    private void drawDiagonalLineNeg(Canvas canvas){
         canvas.drawLine(0, 0, cellSize*3,cellSize*3, paint);
     }
 
@@ -192,11 +192,11 @@ public class TicTacToeBoard extends View {
                 break;
 
             case 3:
-                drawDiagLineNeg(canvas);
+                drawDiagonalLineNeg(canvas);
                 break;
 
             case 4:
-                drawDiagLinePos(canvas);
+                drawDiagonalLinePos(canvas);
                 break;
 
         }

@@ -108,7 +108,7 @@ public class GameLogic {
             else if(boardFilled == 9){
                 playAgainBtn.setVisibility(View.VISIBLE);
                 homeBtn.setVisibility(View.VISIBLE);
-                playerTurn.setText(("DRAW!!!"));
+                playerTurn.setText("DRAW!!");
                 return true;
             }
             else{
